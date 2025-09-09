@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المعهد العالى لتكنولوجياالعلوم الصحية التطبيقية</title>
+  <style>
+    body {
+      margin:0;
+      font-family:Tahoma, Arial, sans-serif;
+      background:#f4f6fa;
+      color:#333;
+      line-height:1.8;
+    }
+
+    /* الهيدر مع الخلفية */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url("img/علوم\).jpg") center/cover no-repeat;
+      color: #fff;
+      padding: 170px 130px;
+      text-align: center;
+    }
+
+    header h1 { margin: 0; font-size: 48px; font-weight: bold; }
+    header p { margin: 15px 0 0; font-size: 20px; }
+
+    /* النافبار */
+    nav {
+      background:#1e293b;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      padding:12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+      transition:.3s;
+      padding:5px 10px;
+    }
+
+    nav a:hover { color:#0ea5e9; }
+
+    /* القائمة المنسدلة */
+    nav .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    nav .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%; /* تظهر أسفل الرابط */
+      left: 0;
+      background-color: #1e293b;
+      min-width: 180px;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    nav .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav .dropdown-content a:hover {
+      background-color: #0ea5e9;
+    }
+
+    nav .dropdown:hover .dropdown-content {
+      display: flex; /* تظهر عند الوقوف على الرابط */
+      flex-direction: column;
+    }
+
+    /* الأقسام */
+    section {
+      padding:50px 20px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    h2 {
+      color:#0ea5e9;
+      margin-bottom:15px;
+      font-size:28px;
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .card {
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 6px 14px rgba(0,0,0,0.08);
+      padding:25px;
+      transition:.3s;
+    }
+
+    .card:hover { transform:translateY(-6px); }
+
+    .stats {
+      display:flex;
+      gap:25px;
+      justify-content:center;
+      margin-top:25px;
+      flex-wrap:wrap;
+    }
+
+    .stat {
+      background:#fff;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 6px 14px rgba(0,0,0,0.08);
+      text-align:center;
+      flex:1;
+      min-width:220px;
+    }
+
+    .stat strong {
+      display:block;
+      font-size:30px;
+      color:#6366f1;
+      margin-bottom:5px;
+    }
+
+    /* الفوتر */
+    footer {
+      background:#1e293b;
+      color:#ddd;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
+    }
+
+    footer a {
+      color:#0ea5e9;
+      text-decoration:none;
+      margin:0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <header>
+    <h1>المعهد العالى لتكنولوجيا العلوم الصحية التطبيقية 
+      
+    </h1>
+    <p></p>
+  </header>
+
+  <!-- النافبار -->
+  <nav>
+    <a href="#about">عن القسم</a>
+    <a href="#mission">الرسالة</a>
+
+    <!-- القائمة المنسدلة للأقسام -->
+    <div class="dropdown">
+      <a href="#">الأقسام ▼</a>
+      <div class="dropdown-content">
+        <a href="Radiology.html"> الاشعه والتصوير الرقمى</a>
+        <a href="Medical Laboratories.html"> المختبرات الطبية  </a>
+       
+      </div>
+    </div>
+
+    <a href="#stats">الإحصائيات</a>
+    <a href="#efforts">الجهود</a>
+    <a href="#efforts">الجودة</a>
+  </nav>
+
+  <!-- قسم عن المعهد -->
+  <section id="about">
+    <h2>عن المعهد</h2>
+    <p>يُعَد معهد العلوم الصحية من المؤسسات التعليمية الرائدة التي تهدف إلى إعداد وتأهيل كوادر مهنية متميزة في مختلف مجالات الرعاية الصحية. يسعى المعهد إلى توفير بيئة تعليمية متكاملة تجمع بين الجانب الأكاديمي والتطبيقي، مما يضمن تخريج طلاب قادرين على مواكبة التطورات الحديثة في القطاع الصحي. كما يركز المعهد على تنمية مهارات البحث العلمي، وتعزيز قيم الجودة والالتزام بأخلاقيات المهنة لخدمة المجتمع وتحسين مستوى الرعاية الصحية.</p>
+  </section>
+
+  <!-- قسم الرؤية -->
+  <section id="vision">
+    <h2>الرؤية</h2>
+    <p>أن يكون المعهد رائدًا في مجال العلوم الصحية التطبيقية على المستوى الإقليمي والدولي.</p>
+  </section>
+
+  <!-- قسم الرسالة -->
+  <section id="mission">
+    <h2>الرسالة</h2>
+    <p>تقديم تعليم عالي الجودة، وبحث علمي متطور، وخدمات مجتمعية تساهم في التنمية المستدامة.</p>
+  </section>
+
+  <!-- قسم الأقسام الأكاديمية -->
+  <section id="departments">
+    <h2>الأقسام الأكاديمية</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>الاشعة والتصوير الرقمى  </h3>
+        <p>يقدم برامج متقدمة في تعلم الآلة، الرؤية الحاسوبية، ومعالجة اللغة الطبيعية.</p>
+        <a href="dept-ai.html">المزيد →</a>
+      </div>
+      <div class="card">
+        <h3> المختبرات الطبية  </h3>
+        <p>يركز على منهجيات تطوير البرمجيات وضمان الجودة وإدارة المشاريع البرمجية.</p>
+        <a href="dept-software.html">المزيد →</a>
+      </div>
+      <div class="card">
+ 
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم الإحصائيات -->
+  <section id="stats">
+    <h2>إحصائيات</h2>
+    <div class="stats">
+      <div class="stat"><strong>120</strong> عضو هيئة تدريس</div>
+      <div class="stat"><strong>2500</strong> طالب</div>
+      <div class="stat"><strong>15</strong> شراكة بحثية</div>
+    </div>
+  </section>
+
+  <!-- قسم الجهود -->
+  <section id="efforts">
+    <h2>جهود المعهد</h2>
+    <p>يسعى المعهد إلى تطوير العملية التعليمية الجامعية من خلال:</p>
+    <ul>
+      <li>استخدام أحدث تقنيات التعليم الإلكتروني.</li>
+      <li>تشجيع الطلاب على المشاركة في المسابقات العالمية.</li>
+      <li>إطلاق حاضنات أعمال ومراكز ابتكار.</li>
+    </ul>
+  </section>
+
+  <!-- الفوتر -->
+  <footer>
+    <p>© <span id="year"></span> المصرية للعلوم والتكنولوجيا - من قلب صعيد مصر</p>
+    <p>| 
+      <a href="home.html" target="_blank">الرئيسية</a>
+      <a href="news.html">الأخبار</a> | 
+      <a href="gallery.html">معرض الصور</a> | 
+      <a href="rules.html">القوانين</a> | 
+    </p>
+  </footer>
+
+  <!-- جافاسكريبت لتحديث السنة تلقائيًا -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

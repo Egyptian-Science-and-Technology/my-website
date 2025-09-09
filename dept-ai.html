@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قسم الذكاء الاصطناعي</title>
+  <style>
+    body{
+      margin:0;
+      font-family:Tahoma, Arial, sans-serif;
+      background:#f9fafb;
+      color:#333;
+    }
+    header{
+      background:linear-gradient(135deg,#6366f1,#0ea5e9);
+      color:#fff;
+      padding:50px 20px;
+      text-align:center;
+    }
+    header h1{margin:0;font-size:36px}
+    nav{
+      background:#1e293b;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      padding:12px;
+    }
+    nav a{color:#fff;text-decoration:none;font-weight:bold;transition:.3s}
+    nav a:hover{color:#0ea5e9}
+    section{padding:40px 20px;max-width:900px;margin:auto}
+    h2{color:#0ea5e9;margin-bottom:10px}
+    .card{background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.08);margin-bottom:20px}
+    footer{background:#1e293b;color:#ddd;text-align:center;padding:20px;margin-top:40px}
+    footer a{color:#0ea5e9;text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>قسم الذكاء الاصطناعي</h1>
+    <p>أحد أقسام معهد علوم الحاسب</p>
+  </header>
+
+  <nav>
+    <a href="index.html">الصفحة الرئيسية للمعهد</a>
+    <a href="#about">عن القسم</a>
+    <a href="#rules">القوانين</a>
+    <a href="#syllabus">اللائحة الدراسية</a>
+    <a href="#news">الأخبار</a>
+    <a href="#gallery">معرض الصور</a>
+  </nav>
+
+  <section id="about">
+    <h2>عن القسم</h2>
+    <div class="card">
+      <p>يختص قسم الذكاء الاصطناعي بتدريس موضوعات تعلم الآلة، الشبكات العصبية، الرؤية الحاسوبية، ومعالجة اللغة الطبيعية. يهدف القسم إلى تخريج طلاب متمكنين من أحدث التقنيات وتطبيقاتها العملية.</p>
+    </div>
+  </section>
+
+  <section id="rules">
+    <h2>القوانين</h2>
+    <div class="card">
+      <ul>
+        <li>الالتزام بالحضور والانضباط داخل القاعات الدراسية.</li>
+        <li>اتباع سياسات البحث العلمي والأمانة الأكاديمية.</li>
+        <li>المحافظة على أجهزة المعامل والمرافق.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="syllabus">
+    <h2>اللائحة الدراسية</h2>
+    <div class="card">
+      <p>يمكنك تحميل اللائحة الدراسية الكاملة للقسم عبر الرابط التالي:</p>
+      <a href="syllabus-ai.pdf" target="_blank">تحميل اللائحة الدراسية PDF</a>
+    </div>
+  </section>
+
+  <section id="news">
+    <h2>الأخبار</h2>
+    <div class="card">
+      <ul>
+        <li>إطلاق برنامج جديد في تعلم الآلة المتقدم - يناير 2025.</li>
+        <li>مشاركة طلاب القسم في مسابقة الذكاء الاصطناعي العالمية - مارس 2025.</li>
+        <li>ورشة عمل حول الروبوتات الذكية - أبريل 2025.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>معرض الصور</h2>
+    <div class="card">
+      <p>هنا يمكن وضع صور من أنشطة القسم:</p>
+      <img src="https://via.placeholder.com/250x150" alt="صورة نشاط" style="margin:5px;border-radius:6px">
+      <img src="https://via.placeholder.com/250x150" alt="صورة نشاط" style="margin:5px;border-radius:6px">
+      <img src="https://via.placeholder.com/250x150" alt="صورة نشاط" style="margin:5px;border-radius:6px">
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> قسم الذكاء الاصطناعي - معهد علوم الحاسب</p>
+    <p><a href="index.html">العودة للصفحة الرئيسية</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

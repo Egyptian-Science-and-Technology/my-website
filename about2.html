@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>عنّا |المصرية للعلوم و التكنولوجيا</title>
+  <!-- خط عربي جميل (اختياري) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;           /* slate-900 */
+      --card:#111827cc;       /* translucent slate-900 */
+      --soft:#1e293b;         /* slate-800 */
+      --muted:#94a3b8;        /* slate-400 */
+      --text:#e5e7eb;         /* gray-200 */
+      --primary:#22d3ee;      /* cyan-400 */
+      --accent:#a78bfa;       /* violet-400 */
+      --grad1:#0ea5e9;        /* sky-500 */
+      --grad2:#a855f7;        /* fuchsia-500 */
+      --grad3:#22c55e;        /* green-500 */
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:'Cairo', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text); background: radial-gradient(1200px 700px at 10% -10%, #0b1224, transparent 70%),
+                         radial-gradient(900px 500px at 90% -20%, #17122a, transparent 70%), var(--bg);
+      overflow-x:hidden;
+    }
+
+    /* Header */
+    .hero{
+      position:relative; padding:120px 20px 80px; text-align:center; overflow:hidden;
+      background: linear-gradient(135deg, rgba(14,165,233,.15), rgba(167,139,250,.15)), var(--bg);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .hero .glow{
+      position:absolute; inset:auto -20% -40% -20%; height:420px;
+      background: radial-gradient(closest-side, rgba(34,211,238,.35), transparent 65%),
+                  radial-gradient(closest-side, rgba(167,139,250,.25), transparent 65%),
+                  radial-gradient(closest-side, rgba(34,197,94,.25), transparent 65%);
+      filter: blur(40px); pointer-events:none; animation: floatGlow 12s linear infinite;
+    }
+    @keyframes floatGlow{ 0%{transform:translateY(0)} 50%{transform:translateY(-20px)} 100%{transform:translateY(0)} }
+
+    .title{font-size: clamp(28px, 5vw, 48px); margin:0 0 10px; font-weight:800; letter-spacing:.3px}
+    .subtitle{font-size: clamp(14px, 2.3vw, 18px); color:var(--muted); margin:0 auto; max-width:900px}
+
+    .cta-bar{margin:32px auto 0; display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
+    .btn{
+      padding:12px 18px; border:none; border-radius:999px; font-weight:700; cursor:pointer; transition:.25s ease transform, .25s ease box-shadow, .25s ease background;
+      background:linear-gradient(135deg, var(--grad1), var(--grad2)); color:#021018; box-shadow: var(--shadow);
+    }
+    .btn:hover{ transform: translateY(-2px); }
+    .btn.ghost{ background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.15)}
+    .btn.ghost:hover{ background:rgba(255,255,255,.06)}
+
+    /* Container */
+    .container{ max-width:1200px; margin:0 auto; padding:60px 20px }
+
+    /* Section */
+    section{ margin: 30px 0 60px; position:relative }
+    .section-head{ display:flex; align-items:center; gap:12px; margin-bottom:22px }
+    .section-head .dot{ width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg, var(--grad2), var(--grad3)); box-shadow:0 0 0 4px rgba(167,139,250,.15)}
+    .section-head h2{ margin:0; font-size: clamp(20px, 4vw, 28px)}
+    .section-desc{ color:var(--muted); margin: 6px 0 0; max-width:900px }
+
+    /* Cards Grid */
+    .grid{ display:grid; gap:18px }
+    .grid.cols-3{ grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) ); }
+    .grid.cols-2{ grid-template-columns: repeat( auto-fit, minmax(280px, 1fr) ); }
+
+    .card{ background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding:20px; box-shadow:var(--shadow); position:relative; overflow:hidden }
+    .card::after{ content:""; position:absolute; inset:-2px; background: conic-gradient(from 180deg at 50% 50%, rgba(34,211,238,.14), rgba(167,139,250,.14), rgba(34,197,94,.14), transparent 60%); filter: blur(14px); z-index:-1; opacity:.6 }
+
+    .card h3{ margin-top:0; margin-bottom:8px; font-size:20px }
+    .card p{ margin:0; color:var(--muted) }
+
+    /* Media block (image + text side by side) */
+    .media{ display:grid; grid-template-columns: 1.1fr .9fr; gap:22px; align-items:center }
+    .media.reverse{ grid-template-columns: .9fr 1.1fr }
+    .media img{ width:100%; height:100%; object-fit:cover; border-radius: var(--radius); border:1px solid rgba(255,255,255,.09) }
+
+    /* Stats */
+    .stats{ display:grid; grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); gap:18px }
+    .stat{ padding:22px; border-radius: var(--radius); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); text-align:center; position:relative; overflow:hidden }
+    .stat strong{ display:block; font-size: clamp(28px, 5vw, 44px); line-height:1; margin-bottom:8px; background:linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent }
+    .stat span{ color:var(--muted) }
+
+    /* Efforts */
+    .steps{ counter-reset: step; display:grid; grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) ); gap:18px }
+    .step{ background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding:20px; position:relative }
+    .step::before{ counter-increment: step; content: counter(step); position:absolute; inset:16px auto auto 16px; width:40px; height:40px; display:grid; place-items:center; border-radius:50%; background:linear-gradient(135deg, var(--grad1), var(--grad2)); color:#031018; font-weight:800; box-shadow: var(--shadow) }
+
+    /* Footer */
+    footer{ text-align:center; color:var(--muted); padding:40px 20px; border-top:1px solid rgba(255,255,255,.06) }
+
+    /* Reveal on scroll */
+    .reveal{ opacity:0; transform: translateY(16px) scale(.98); transition: .7s ease opacity, .7s ease transform }
+    .reveal.show{ opacity:1; transform: translateY(0) scale(1) }
+
+    /* Nice links */
+    a{ color:var(--primary); text-decoration:none }
+    a:hover{ text-decoration:underline }
+
+    /* Responsive tweaks */
+    @media (max-width: 900px){ .media, .media.reverse{ grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!-- ====== HERO ====== -->
+  <header class="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <h1 class="title">عنّــا — المصرية للعلوم و التكنولوجيا</h1>
+    <p class="subtitle">مؤسسة تعليمية رائدة تضم <strong>6 معاهد</strong>  متخصصة، تعمل على إعداد جيل قادر على الإبداع والابتكار من خلال رؤية واضحة ورسالة مُلهِمة وأهداف قابلة للقياس.</p>
+    <div class="cta-bar">
+      <a href="home.html" class="btn ghost">الرئيسيه</a>
+      <a href="#institutes" class="btn">معاهدنا</a>
+      <a href="#vision" class="btn ghost">الرؤية والرسالة</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ====== INSTITUTES ====== -->
+    <section id="institutes" class="reveal">
+      <div class="section-head">
+        <div class="dot" aria-hidden="true"></div>
+        <h2>المعاهد التابعة لنا </h2>
+      </div>
+      <p class="section-desc">ستة معاهد أكاديمية تغطي تخصصات علمية ومهنية متنوّعة. يمكن تعديل أسماء المعاهد والوصف أدناه بسهولة.</p>
+
+      <div class="grid cols-3">
+        <article class="card">
+          <h3> المعهد العالي لتكنولوجيا الادارة والمعلومات </h3>
+          <p>معهد إدارة المعلومات يهدف إلى إعداد كوادر متخصصة في نظم المعلومات وتحليل البيانات لدعم اتخاذ القرار بكفاءة.</p>
+        </article>
+        <article class="card">
+          <h3>  المعهد العالي لتكنولوجيا العلوم الصحيةالتطبيقية</h3>
+          <p>المعهد العالي لتكنولوجيا العلوم الصحية التطبيقية يهدف إلى تأهيل كوادر متخصصة في المجالات الصحية والتطبيقية، مزودة بالمعرفة العملية والنظرية لخدمة المجتمع والرعاية الصحية بكفاءة</p>
+        </article>
+        <article class="card">
+          <h3> المعهد العالي للاعلام </h3>
+          <p>    المعهد العالي للإعلام يهدف إلى إعداد كوادر متميزة في مجالات الصحافة، الإعلام الرقمي، والإنتاج الإعلامي، مزودة بالمعرفة والمهارات العملية للتأثير الإيجابي في المجتمع.</p>
+        </article>
+        <article class="card">
+          <h3>المعهد العالي لعلوم الحاسب </h3>
+          <p>المعهد العالي لعلوم الحاسب يهدف إلى تأهيل كوادر متخصصة في تكنولوجيا المعلومات وعلوم الحاسب، مزودة بالمهارات العملية والنظرية لمواكبة التطور الرقمي ودعم الابتكار التكنولوجي.</p>
+        </article>
+        <article class="card">
+          <h3> المعهد التكنولوجى للتمريض</h3>
+          <p> 
+المعهد التكنولوجي للتمريض يهدف إلى إعداد كوادر تمريضية متخصصة تمتلك المهارات العملية والنظرية لتقديم رعاية صحية متكاملة ودعم النظام الصحي بكفاءة.</p>
+        </article>
+        <article class="card">
+          <h3>المعهد العالي للسياحه والفنادق   </h3>
+          <p>
+المعهد العالي للسياحة والفنادق يهدف إلى إعداد كوادر متخصصة في مجالات السياحة وإدارة الفنادق، مزودة بالمهارات العملية والنظرية لتقديم خدمات سياحية وفندقية متميزة</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== VISION ====== -->
+    <section id="vision" class="reveal">
+      <div class="section-head">
+        <div class="dot" aria-hidden="true"></div>
+        <h2>الرؤية</h2>
+      </div>
+      <div class="media">
+        <div>
+          <h3>نطمح إلى ريادة تعليمية مستدامة</h3>
+          <p class="section-desc">تسعى المؤسسة إلى أن تكون نموذجًا وطنيًا وإقليميًا في التعليم والبحث والابتكار، عبر بيئة تعلم داعمة للتجريب، ومنفتحة على الشراكات مع الصناعة والمجتمع.</p>
+        </div>
+        <img src="img/est.jpg" alt="صورة تعبّر عن رؤية المؤسسة" />
+      </div>
+    </section>
+
+    <!-- ====== MISSION ====== -->
+    <section id="mission" class="reveal">
+      <div class="section-head">
+        <div class="dot" aria-hidden="true"></div>
+        <h2>الرسالة</h2>
+      </div>
+      <div class="media reverse">
+        <img src="img/19.jpg" alt="صورة تعبّر عن رسالة المؤسسة" />
+        <div>
+          <h3>تعليم ذو تأثير، وبحث ينتج قيمة</h3>
+          <p class="section-desc">تقديم برامج تعليمية محدثة، وبناء قدرات الطلبة والباحثين، وإنتاج معرفي يساهم في معالجة تحديات المجتمع وسوق العمل، مع التزام بالجودة والشفافية.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== GOALS ====== -->
+    <section id="goals" class="reveal">
+      <div class="section-head">
+        <div class="dot" aria-hidden="true"></div>
+        <h2>الأهداف الإستراتيجية</h2>
+      </div>
+      <div class="media">
+        <div>
+          <ul style="margin:0; padding-inline-start:20px; color:var(--muted); line-height:1.9">
+            <li>تحديث الخطط الدراسية وربطها بالمهارات المستقبلية.</li>
+            <li>تعزيز البحث العلمي التطبيقي وبراءات الاختراع.</li>
+            <li>تنمية مهارات أعضاء هيئة التدريس والكوادر الإدارية.</li>
+            <li>توسيع الشراكات مع الصناعة والمجتمع المدني.</li>
+            <li>تحسين تجربة الطالب ودعم الابتكار وريادة الأعمال.</li>
+          </ul>
+        </div>
+        <img src="img/bkground.jpg" alt="صورة تعبّر عن الأهداف" />
+      </div>
+    </section>
+
+    <!-- ====== STATS ====== -->
+    <section id="stats" class="reveal">
+      <div class="section-head">
+        <div class="dot" aria-hidden="true"></div>
+        <h2>أرقامنا</h2>
+      </div>
+      <div class="stats">
+        <!-- غيّر الأرقام عبر خاصية data-target -->
+        <div class="stat"><strong class="counter" data-target="420">0</strong><span>أعضاء هيئة التدريس</span></div>
+        <div class="stat"><strong class="counter" data-target="12000">0</strong><span>إجمالي عدد الطلاب</span></div>
+        <div class="stat"><strong class="counter" data-target="95">0</strong><span>شراكات واتفاقيات</span></div>
+      </div>
+    </section>
+
+    <!-- ====== EFFORTS ====== -->
+    <section id="efforts" class="reveal">
+      <div class="section-head">
+        <div class="dot" aria-hidden="true"></div>
+        <h2>جهود المؤسسة في تطوير العملية التعليمية الجامعية</h2>
+      </div>
+      <p class="section-desc">ملامح من المبادرات والبرامج المستمرة لتحسين جودة التعليم والخبرة الجامعية. يمكن تعديل العناصر التالية لتوثيق الجهود القائمة.</p>
+      <div class="steps">
+        <div class="step">
+          <h3 style="margin-top:50px">تطوير المقررات بالنتائج التعليمية (OBE)</h3>
+          <p>مواءمة مخرجات التعلم مع مؤشرات قياس واضحة وربطها بالاعتماد الأكاديمي.</p>
+        </div>
+        <div class="step">
+          <h3 style="margin-top:50px">تحوّل رقمي وخدمات ذكية</h3>
+          <p>نظم لإدارة التعلم، سجلات إلكترونية، ودعم التعلم المدمج.</p>
+        </div>
+        <div class="step">
+          <h3 style="margin-top:50px">تدريب وتطوير مهني</h3>
+          <p>برامج تدريبية لأعضاء هيئة التدريس على أساليب التدريس الحديثة والتقييم.</p>
+        </div>
+        <div class="step">
+          <h3 style="margin-top:50px">حاضنات ومسرّعات طلابية</h3>
+          <p>دعم المشاريع الريادية والمسابقات والأنشطة الابتكارية.</p>
+        </div>
+        <div class="step">
+          <h3 style="margin-top:50px">بحث علمي موجّه</h3>
+          <p>أولويات بحثية مرتبطة باحتياجات المجتمع والصناعة مع تمويل تنافسي.</p>
+        </div>
+        <div class="step">
+          <h3 style="margin-top:50px">خدمة مجتمع وشراكات</h3>
+          <p>مبادرات مسؤولية مجتمعية واتفاقيات تعاون تدريب وتوظيف.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© <span id="year"></span>   المصرية للعلوم والتكنولوجيا</small>
+  </footer>
+
+  <script>
+    // سنة تلقائية
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // إظهار العناصر أثناء التمرير
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') });
+    }, {threshold: .12});
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+    // عدّادات الأرقام المتحركة
+    const counters = document.querySelectorAll('.counter');
+    const animateCounter = (el)=>{
+      const target = +el.dataset.target || 0;
+      const duration = 1400; // ms
+      const start = performance.now();
+      const step = (now)=>{
+        const p = Math.min(1,(now-start)/duration);
+        const value = Math.floor(p*target);
+        el.textContent = value.toLocaleString('ar-EG');
+        if(p<1) requestAnimationFrame(step); else el.textContent = target.toLocaleString('ar-EG');
+      };
+      requestAnimationFrame(step);
+    };
+
+    // تشغيل العدّادات عند ظهور قسم الأرقام
+    const stats = document.getElementById('stats');
+    const io2 = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ counters.forEach(animateCounter); io2.disconnect(); }
+      });
+    }, {threshold:.35});
+    io2.observe(stats);
+  </script>
+</body>
+</html>

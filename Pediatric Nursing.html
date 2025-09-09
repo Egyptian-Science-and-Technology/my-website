@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المعهد التكنولوجى للتمريض</title>
+
+  <!-- الخطوط والأيقونات -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- مكتبة AOS للتحريك -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background:#f4f6fa;
+      color:#333;
+      line-height:1.8;
+    }
+
+    /* النافبار */
+    nav {
+      position: sticky;
+      top: 0;
+      background:#1e293b;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      padding:15px;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+      padding:8px 15px;
+      transition:0.3s;
+    }
+
+    nav a:hover { color:#0ea5e9; }
+
+    /* القائمة المنسدلة للأقسام */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #1e293b;
+      min-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 100;
+      top: 40px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      color: #fff;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #0ea5e9;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* الهيدر */
+    header {
+      text-align: center;
+      background: url('img/تمريض\ 3.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 200px 50px;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* طبقة شفافة */
+    }
+
+    header h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    header p {
+      font-size: 22px;
+      position: relative;
+      z-index: 1;
+      margin-top: 10px;
+    }
+
+    /* الأقسام */
+    section {
+      padding:60px 20px;
+      max-width:1200px;
+      margin:auto;
+      text-align:center;
+    }
+
+    h2 {
+      color:#0ea5e9;
+      margin-bottom:20px;
+      font-size:32px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #0ea5e9;
+      margin: 10px auto 0;
+      border-radius: 5px;
+    }
+
+    p { font-size: 18px; }
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+      margin-top:30px;
+    }
+
+    .card {
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 6px 14px rgba(0,0,0,0.08);
+      padding:25px;
+      transition:.3s;
+    }
+
+    .card:hover { transform:translateY(-8px); }
+
+    /* الإحصائيات */
+    .stats {
+      display:flex;
+      gap:25px;
+      justify-content:center;
+      margin-top:30px;
+      flex-wrap:wrap;
+    }
+
+    .stat {
+      background:#fff;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 6px 14px rgba(0,0,0,0.08);
+      text-align:center;
+      flex:1;
+      min-width:220px;
+      transition: .3s;
+    }
+
+    .stat strong {
+      display:block;
+      font-size:36px;
+      color:#6366f1;
+      margin-bottom:8px;
+    }
+
+    .stat:hover { background:#f9fafb; }
+
+    /* معرض الصور */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* الفوتر */
+    footer {
+      background:#1e293b;
+      color:#ddd;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
+    }
+
+    footer a {
+      color:#0ea5e9;
+      text-decoration:none;
+      margin:0 8px;
+    }
+
+    footer p { margin:10px 0; }
+
+    /* زر العودة للأعلى */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #0ea5e9;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      font-size: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- النافبار -->
+  <nav>
+    <a href="#about">عن القسم</a>
+    <a href="#mission">الرسالة</a>
+    <a href="#stats">الإحصائيات</a>
+    
+    <!-- زر الأقسام مع القائمة المنسدلة -->
+    <div class="dropdown">
+       <a href="#gallery">الجهود</a>
+      <a href="#gallery">اعضاء هيئة التدريس </a>
+    <a href="#gallery">معرض الصور</a>
+    <a href="#contact">تواصل معنا</a>
+  </nav>
+
+  <!-- الهيدر -->
+  <header>
+    <h1>  قسم الاطفال وحديثى الولاده </h1>
+ 
+  </header>
+
+  <!-- قسم عن المعهد -->
+  <section id="about" data-aos="fade-up">
+    <h2>عن القسم </h2>
+    <p>المعهد العالي للعلوم الصحية هو مؤسسة تعليمية متخصصة في إعداد وتأهيل الكوادر الفنية والصحية في مختلف التخصصات الطبية المساندة، بهدف تلبية احتياجات سوق العمل في المستشفيات والمراكز الصحية.</p>
+  </section>
+
+  <!-- قسم الرسالة -->
+  <section id="mission" data-aos="fade-up">
+    <h2>الرسالة</h2>
+    <p>تقديم تعليم عالي الجودة، وبحث علمي متطور، وخدمات مجتمعية تساهم في التنمية المستدامة.</p>
+  </section>
+
+  <!-- قسم الإحصائيات -->
+  <section id="stats" data-aos="zoom-in">
+    <h2>إحصائيات</h2>
+    <div class="stats">
+      <div class="stat"><strong>120</strong> عضو هيئة تدريس</div>
+      <div class="stat"><strong>2500</strong> طالب</div>
+      <div class="stat"><strong>15</strong> شراكة بحثية</div>
+    </div>
+  </section>
+
+  <!-- الأقسام -->
+  <section data-aos="fade-up">
+    <h2>الجهود   </h2>
+    <p>ChatGPT said:
+
+جهود قسم الأطفال وحديثي الولادة تتمثل في تقديم رعاية طبية وتمريضية متكاملة للأطفال منذ ولادتهم، وتشمل متابعة النمو والتطور، والتعامل مع الحالات الحرجة داخل الحضانات. كما يحرص القسم على الوقاية من الأمراض من خلال التطعيمات والتثقيف الصحي للأمهات، ويعمل على توفير أحدث الأجهزة والتقنيات لضمان أفضل رعاية ممكنة</p>
+    <a href="Radiology.html" class="show-more">المزيد</a>
+  </section>
+
+  <section data-aos="fade-up">
+    <h2>الابحاث</h2>
+    <p>تركز على تطوير أساليب الرعاية الصحية والتمريضية وتحسين نتائج علاج حديثي الولادة. ومن أبرز مجالات الأبحاث التي يهتم بها القسم:
+
+✅ أمراض حديثي الولادة مثل اليرقان، اضطرابات التنفس، ونقص الوزن عند الولادة.
+✅ التغذية السليمة للأطفال الخدج وحديثي الولادة ودورها في النمو.</p>
+    <a href="Medical Laboratories.html" class="show-more">المزيد</a>
+  </section>
+
+  <section data-aos="fade-up">
+    <h2> تطورات</h2>
+    <p>تطوير الحضانات الذكية المزودة بأحدث أجهزة المراقبة والتحكم في درجة الحرارة ونسبة الأكسجين.
+✅ استخدام تقنيات التشخيص المبكر للكشف عن الأمراض الوراثية والمشكلات الصحية عند الولادة.
+✅ إدخال أنظمة الإنذار المبكر لمتابعة الحالات الحرجة بدقة عالية.</p>
+    <a href="about.html" class="show-more">المزيد</a>
+  </section>
+
+  <!-- معرض الصور -->
+  <section id="gallery">
+    <h2>معرض الصور</h2>
+    <div class="gallery">
+      <img src="img/ع1.jpg" alt="صورة 1" data-aos="zoom-in">
+      <img src="img/ع2.jpeg" alt="صورة 2" data-aos="fade-up">
+      <img src="img/ع3.jpg" alt="صورة 3" data-aos="flip-left">
+      <img src="img/ع4.jpg" alt="صورة 4" data-aos="flip-right">
+      <img src="img/ع5.jpg" alt="صورة 5" data-aos="fade-up">
+      <img src="img/ع6.jpg" alt="صورة 6" data-aos="zoom-in">
+      <img src="img/ع7.jpg" alt="صورة 7" data-aos="flip-left">
+      <img src="img/ع8.jpg" alt="صورة 8" data-aos="flip-right">
+    </div>
+  </section>
+
+  <!-- تواصل معنا -->
+  <section id="contact" data-aos="fade-up">
+    <h2>تواصل معنا</h2>
+    <p>للاستفسار أو الملاحظات يمكنكم التواصل عبر البريد الإلكتروني: <a href="mailto:mohamed255.est@gmail.com">mohamed255.est@gmail.com</a></p>
+  </section>
+
+  <!-- الفوتر -->
+  <footer>
+    <p>© <span id="year"></span> المعهد العالي التكنولوجى للتمريض</p>
+    <p>
+      <a href="Institute of Nursing.html">الرئيسية المعهد التكنولوجى للتمريض</a> | 
+      <a href="news.html">الأخبار</a> | 
+      <a href="gallery.html">معرض الصور</a> | 
+      <a href="#">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+  <!-- سكربتات -->
+  <script>
+    // تحديث السنة
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // زر العودة للأعلى
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 300){
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <!-- تفعيل مكتبة AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true
+    });
+  </script>
+
+</body>
+</html>

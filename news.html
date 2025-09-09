@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الأخبار - المصرية للعلوم والتكنولوجيا</title>
+  <style>
+    body{margin:0;font-family:Tahoma, Arial, sans-serif;background:#f9fafb;color:#333}
+
+    /* 🔴 شريط الأخبار العاجلة */
+    .breaking-news {
+      background:#b91c1c;
+      color:#fff;
+      padding:10px;
+      overflow:hidden;
+      white-space:nowrap;
+      position:fixed;
+      top:0;
+      right:0;
+      width:100%;
+      z-index:1000;
+      font-weight:bold;
+    }
+    .breaking-news span {
+      display:inline-block;
+      padding-right:100%;
+      animation: ticker 15s linear infinite;
+    }
+    @keyframes ticker {
+      0% {transform: translateX(100%);}
+      100% {transform: translateX(-100%);}
+    }
+
+    header {
+      background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url("img/bkground.jpg") center/cover no-repeat;
+      color:#fff;
+      padding:200px 50px 100px;
+      text-align:center;
+      background-attachment:fixed;
+    }
+
+    /* 🟦 العنوان المتحرك */
+    header h1 {
+      font-size:60px;
+      margin:0;
+      animation: pulse 3s infinite;
+    }
+    @keyframes pulse {
+      0%,100% {transform: scale(1); color:#fff;}
+      50% {transform: scale(1.1); color:#f50101;}
+    }
+
+    nav{background:#1e293b;display:flex;justify-content:center;gap:20px;padding:12px;margin-top:-5px}
+    nav a{color:#fff;text-decoration:none;font-weight:bold;transition:.3s}
+    nav a:hover{color:#0ea5e9}
+
+    /* 🟩 أزرار الفلترة */
+    .filter-buttons {
+      text-align:center;
+      margin:20px 0;
+    }
+    .filter-buttons button {
+      background:#0ea5e9;
+      border:none;
+      color:#fff;
+      padding:10px 20px;
+      margin:5px;
+      border-radius:5px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:0.3s;
+    }
+    .filter-buttons button:hover {
+      background:#0369a1;
+    }
+
+    section{padding:40px 20px;max-width:1000px;margin:auto}
+    h2{color:#0ea5e9;margin-bottom:10px;text-align:center}
+
+    .card {
+      display:flex;
+      background:#fff;
+      padding:15px;
+      border-radius:8px;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+      margin-bottom:20px;
+      align-items:center;
+      gap:15px;
+    }
+    .card img {
+      width:200px;
+      height:120px;
+      border-radius:8px;
+      object-fit:cover;
+    }
+    .card-content {flex:1;}
+
+    footer{background:#1e293b;color:#ddd;text-align:center;padding:20px;margin-top:40px}
+    footer a{color:#0ea5e9;text-decoration:none}
+
+    /* 🟨 عشان ما يغطيش الشريط العاجل الصفحة */
+    body {padding-top:30px}
+  </style>
+</head>
+<body>
+  <!-- 🔴 شريط عاجل -->
+  <div class="breaking-news">
+    <span>🔴  خبر عاجل:  20
+وزير التعليم العالي يشهد احتفالية تكريم طلاب المعاهد الحكومية والمعاهد العليا والجامعات التكنولوجية من ذوي الهمم
+أكد الدكتور أيمن عاشور وزير التعليم العالي والبحث العلمي، أن الوزارة تولي اهتمامًا بالغًا بخدمة ورعاية الطلاب ذوي الهمم، تنفيذًا لتوجيهات القيادة السياسية في هذا الملف الحيوي الهام،</span>
+  </div>
+
+  <header>
+    <h1>الأخبار</h1>
+    <p>آخر مستجدات المصرية للعلوم والتكنولوجيا</p>
+  </header>
+
+  <nav>
+    <a href="home.html">الرئيسية</a>
+    <a href="news.html">الأخبار</a>
+    <a href="gallery.html">معرض الصور</a>
+  
+  </nav>
+
+  <!-- 🟩 أزرار فلترة الأخبار -->
+  <div class="filter-buttons">
+    <button onclick="filterNews('all')">الكل</button>
+    <button onclick="filterNews('students')">طلاب</button>
+    <button onclick="filterNews('activities')">أنشطة</button>
+    <button onclick="filterNews('tech')">المعاهد</button>
+  </div>
+
+  <section>
+    <h2>آخر الأخبار</h2>
+
+    <div class="card" data-category="tech">
+      <img src="img/ai-lab.jpg" alt="معمل ذكاء اصطناعي">
+      <div class="card-content">
+        <h3>افتتاح معمل جديد للذكاء الاصطناعي</h3>
+        <p>تم افتتاح معمل متطور لبحوث الذكاء الاصطناعي بهدف دعم الأبحاث والابتكار - فبراير 2025.</p>
+      </div>
+    </div>
+
+    <div class="card" data-category="activities">
+      <img src="img/security.jpg" alt="أمن المعلومات">
+      <div class="card-content">
+        <h3>ندوة حول أمن المعلومات</h3>
+        <p>نظم قسم أمن المعلومات ندوة علمية حول أحدث تقنيات تأمين الشبكات - مارس 2025.</p>
+      </div>
+    </div>
+
+    <div class="card" data-category="students">
+      <img src="img/programming.jpg" alt="مسابقة برمجة">
+      <div class="card-content">
+        <h3>مسابقة برمجية للطلاب</h3>
+        <p>شارك طلاب المعهد في مسابقة البرمجة العالمية ACM ICPC - أبريل 2025.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> </p>
+    <p><a href="index.html">المصرية للعلوم والتكنولوجيا</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 🟩 فلترة الأخبار
+    function filterNews(category) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

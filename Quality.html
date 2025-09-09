@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> -   المصرية للعلوم والتكنولوجيا</title>
+  <style>
+    body{margin:0;font-family:Tahoma, Arial, sans-serif;background:#f9fafb;color:#333}
+    header {
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), /* تدرج أسود نصف شفاف */
+    url("img/ادارة.jpg") center/cover no-repeat; /* صورة الخلفية */
+  
+  color: #fff;
+  padding: 150px 30px;
+  text-align: center;
+
+  /* تأثير Parallax */
+  background-attachment: fixed; /* يجعل الخلفية تتحرك عند التمرير */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+    nav{background:#1e293b;display:flex;justify-content:center;gap:20px;padding:12px}
+    nav a{color:#fff;text-decoration:none;font-weight:bold;transition:.3s}
+    nav a:hover{color:#0ea5e9}
+    section{padding:40px 20px;max-width:900px;margin:auto}
+    h2{color:#0ea5e9;margin-bottom:10px}
+    .card{background:#fff;padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.08);margin-bottom:20px}
+    footer{background:#1e293b;color:#ddd;text-align:center;padding:20px;margin-top:40px}
+    footer a{color:#0ea5e9;text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>الجودة</h1>
+    <p>  الجودة والتميز أساس النجاح في المعهد العالي للإدارة ونظم المعلومات </p>
+  </header>
+
+  <nav>
+    <a href="index.html">المعهد العالى للادارةوالمعلومات</a>
+    <a href="news.html">الأخبار</a>
+    <a href="gallery.html">معرض الصور</a>
+    <a href="rules.html">القوانين</a>
+  </nav>
+
+  <section>
+    <h2>الجودة </h2>
+    <div class="card">
+      <ul>
+        <li>الالتزام بالحضور بنسبة لا تقل عن 75%.</li>
+        <li>الحفاظ على ممتلكات المعهد والمعامل.</li>
+        <li>منع أي أعمال غش أو سرقة علمية.</li>
+        <li>الالتزام بالأمانة البحثية والأخلاقيات الأكاديمية.</li>
+        <li>اتباع تعليمات الأمن والسلامة داخل المعهد.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year3"></span>  المصرية للعلوم والتكنولوجيا</p>
+    <p><a href="home.html">العودة للصفحة الرئيسية</a></p>
+  </footer>
+  <script>
+    document.getElementById('year3').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
